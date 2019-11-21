@@ -58,4 +58,13 @@ public class TestChannel {
         inChannel.close();
         outChannel.close();
     }
+
+    @Test
+    public void test4() throws Exception{
+        FileChannel inChannel = FileChannel.open(Paths.get("/Users/lizehao/IdeaProject/NIOdemo/src/a.txt"),StandardOpenOption.READ);
+        FileChannel outChannel = FileChannel.open(Paths.get("/Users/lizehao/IdeaProject/NIOdemo/src/e.txt"),StandardOpenOption.READ,StandardOpenOption.WRITE,StandardOpenOption.CREATE_NEW);
+        inChannel.transferTo(0,inChannel.size(),outChannel);
+        inChannel.close();
+        outChannel.close();
+    }
 }
